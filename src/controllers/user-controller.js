@@ -30,7 +30,7 @@ exports.getAll = async function(req, res) {
  * Metodo para crear nuevo usuario
  */
 exports.create = async function(req, res) {
-    const userExist = await User.find({email: req.body.email}); 
+    const userExist = await User.findOne({email: req.body.email}); 
     if(userExist != null)
         return res.status(400).json({ message: 'Ya existe un usuario con el mismo correo electronico' })
 
